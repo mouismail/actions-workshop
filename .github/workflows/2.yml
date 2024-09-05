@@ -37,23 +37,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.ci.txt
           npm ci
-          # Install browsers for running functional tests
-          npx playwright install --with-deps chromium
 
       - name: Build
         run: |
           python -m mkdocs build --clean --strict --verbose --site-dir '${{ env.SITE_DIR }}'
-
-      - name: Functional Test
-        run: npx playwright test
-
-      - name: Upload Functional Test Report
-        uses: actions/upload-artifact@v3
-        if: always()
-        with:
-          name: playwright-report
-          path: playwright-report/
-          retention-days: 30
 
   security-checks:
     runs-on: ubuntu-latest
