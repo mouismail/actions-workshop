@@ -6,6 +6,7 @@ allow-licenses:
   - MIT
   - GPL-3.0
   - BSD-3-Clause
+  - Apache-2.0
 
 fail-on-scopes:
   - development
